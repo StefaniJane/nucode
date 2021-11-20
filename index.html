@@ -327,18 +327,15 @@
                 <!--* .sr-only class, is screen readers only, otherwise wont show up in the browser. *-->
               </a>
               <!--================= Carousel Buttons ================-->
-              <div class="btn-group" id="carouselButton">
-                <button class="btn btn-danger btn-sm" id="carouselPause">
+              
+                <button class="btn btn-danger btn-sm" id="carouselButton">
                   <i class="fa fa-pause"></i>
-                </button>
-                <button class="btn btn-danger btn-sm" id="carouselPlay">
-                  <i class="fa fa-play"></i>
                 </button>
               </div>
             </div>
           </div>
         </div>
-      </div>
+   
 
       <!--=============================== Discover & Review =============================-->
       <div class="row row-content align-items-center">
@@ -412,7 +409,7 @@
           </div>
         </div>
       </div>
-    </div>
+  
 
     <!--========================================== FOOTER ==========================================-->
     <footer class="site-footer">
@@ -470,17 +467,27 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
-      $(function () {
-        $(".carousel").carousel({ interval: 2000 });
-        $("#carouselPause").click(function () {
-          //jquery method called click .click(function(){
-          $(".carousel").carousel("pause"); //click sets up an event handler so that anytime anyone clicks on the element with the id $("#carouselPause") it will run the code $(".carousel").carousel("pause"); to pause the carousel.
+        $(function () {
+            $(".carousel").carousel({ interval: 2000 });
+            $("#carouselButton").click(function () { //here were checking if this button, when its clicked, is a pause button.
+                if ($("#carouselButton").children("i").hasClass("fa-pause")){
+                    $(".carousel").carousel("pause");
+                    $("#carouselButton").children("i").removeClass("fa-pause");
+                    $("#carouselButton").children("i").addClass("fa-play")
+                } else {
+                  $(".carousel").carousel("cycle"); //here were causing the carousel to cycle again.
+                  $("#carouselButton").children("i").removeClass("fa-play"); // here we are removing the play button using the jquery .children & .removeClass methods.
+                  $("#carouselButton").children("i").addClass("fa-pause"); // here we are replacing the removed play button w/ the pause icon; using the jquery .children & .addClass methods.
+                }
+            });
         });
-        $("#carouselPlay").click(function () {
-          //what happens above also happens here; on click of the element w/ specified id ; it will run the following code to play the carousel.
-          $(".carousel").carousel("cycle");
-        });
-      });
     </script>
+        <!-- //jquery method called click .click(function(){
+        //   $(".carousel").carousel("pause"); //click method sets up an event handler so that anytime anyone clicks on the element with the id $("#carouselPause") it will run the code $(".carousel").carousel("pause"); to pause the carousel.
+        // });
+        // $("#carouselPlay").click(function () {
+        //   //what happens above also happens here; on click of the element w/ specified id ; it will run the following code to play the carousel.
+        //   $(".carousel").carousel("cycle");
+        // }); -->
   </body>
 </html>
