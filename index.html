@@ -326,6 +326,15 @@
                 <span class="sr-only">Next</span>
                 <!--* .sr-only class, is screen readers only, otherwise wont show up in the browser. *-->
               </a>
+              <!--================= Carousel Buttons ================-->
+              <div class="btn-group" id="carouselButton">
+                <button class="btn btn-danger btn-sm" id="carouselPause">
+                  <i class="fa fa-pause"></i>
+                </button>
+                <button class="btn btn-danger btn-sm" id="carouselPlay">
+                  <i class="fa fa-play"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -460,6 +469,18 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!--* Required to activate tooltip usage on the page. *-->
+    <script>
+      $(function () {
+        $(".carousel").carousel({ interval: 2000 });
+        $("#carouselPause").click(function () {
+          //jquery method called click .click(function(){
+          $(".carousel").carousel("pause"); //click sets up an event handler so that anytime anyone clicks on the element with the id $("#carouselPause") it will run the code $(".carousel").carousel("pause"); to pause the carousel.
+        });
+        $("#carouselPlay").click(function () {
+          //what happens above also happens here; on click of the element w/ specified id ; it will run the following code to play the carousel.
+          $(".carousel").carousel("cycle");
+        });
+      });
+    </script>
   </body>
 </html>

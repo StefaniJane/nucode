@@ -57,3 +57,12 @@ a:hover {
 .carousel {
   border: solid #5637dd;
 }
+
+/* This css will position the buttons at the bottom right of their parent container(the carousel).*/
+#carouselButton { 
+  position: absolute; 
+  right: 0;
+  bottom: 0;
+  z-index: 100; /* This causes the buttons to overlay/stack on top of the carousel instead of being hidden underneath it.*/
+
+}
