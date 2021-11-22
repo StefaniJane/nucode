@@ -5,18 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Bootstrap CSS -->
+    <!-- build:css css/main.css -->
     <link
       rel="stylesheet"
       href="node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-
-    <!-- Additional CSS must be placed after Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Lobster%7COpen+Sans"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
       href="node_modules/font-awesome/css/font-awesome.min.css"
@@ -24,6 +17,12 @@
     <link
       rel="stylesheet"
       href="node_modules/bootstrap-social/bootstrap-social.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- endbuild -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lobster%7COpen+Sans"
     />
 
     <!--========================================== HEADER ==========================================-->
@@ -464,23 +463,7 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script>
-      $(function () {
-        $(".carousel").carousel({ interval: 2000 });
-        $("#carouselButton").click(function () {
-          //here were checking if this button, when its clicked, is a pause button.
-          if ($("#carouselButton").children("i").hasClass("fa-pause")) {
-            $(".carousel").carousel("pause");
-            $("#carouselButton").children("i").removeClass("fa-pause");
-            $("#carouselButton").children("i").addClass("fa-play");
-          } else {
-            $(".carousel").carousel("cycle"); //here were causing the carousel to cycle again.
-            $("#carouselButton").children("i").removeClass("fa-play"); // here we are removing the play button using the jquery .children & .removeClass methods.
-            $("#carouselButton").children("i").addClass("fa-pause"); // here we are replacing the removed play button w/ the pause icon; using the jquery .children & .addClass methods.
-          }
-        });
-      }); //
-    </script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
 <!-- //jquery method called click .click(function(){
